@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailActivity">
+
+    <TextView
+        android:id="@+id/doe_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/date_of_exposure"
+        android:textSize="30sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        />
+
+    <CalendarView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/calendar_selection"
+        android:layout_below="@+id/doe_textview"
+        android:layout_centerHorizontal="true"
+        android:minDate="01/01/2021"
+        />
+
+    <CheckBox
+        android:id="@+id/fever"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fever"
+        android:layout_below="@id/calendar_selection"/>
+
+    <CheckBox
+        android:id="@+id/cough"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cough"
+        android:layout_below="@id/fever"/>
+
+    <CheckBox
+        android:id="@+id/fatigue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fatigue"
+        android:layout_below="@id/cough"/>
+
+    <CheckBox
+        android:id="@+id/muscle_aches"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Muscle aches"
+        android:layout_below="@id/fatigue"/>
+
+    <CheckBox
+        android:id="@+id/loss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Loss of taste/smell"
+        android:layout_below="@id/muscle_aches"/>
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_toRightOf="@+id/loss"
+        android:layout_alignBaseline="@+id/loss"
+        android:layout_marginLeft="60dp"
+        android:padding="20dp"
+        android:textSize="20sp"
+        />
+
+
+</RelativeLayout>

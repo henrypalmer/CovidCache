@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "41433144320",
+    "firebase_url": "https://animerating-6baa6-default-rtdb.firebaseio.com",
+    "project_id": "animerating-6baa6",
+    "storage_bucket": "animerating-6baa6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:41433144320:android:bed2d69d8584467c50cce5",
+        "android_client_info": {
+          "package_name": "com.henryrpalmer.lewisu.covidcache"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "41433144320-e9uqvkuojqp1u7n4l6iqh5082t6ssrhh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXk7ahnn0JiszPFJluXa7VE-NMyV4O6Ug"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "41433144320-e9uqvkuojqp1u7n4l6iqh5082t6ssrhh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:41433144320:android:1ba4ae9dd2477e5150cce5",
+        "android_client_info": {
+          "package_name": "edu.lewisu.cs.henrypalmer.animerating"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "41433144320-e9uqvkuojqp1u7n4l6iqh5082t6ssrhh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXk7ahnn0JiszPFJluXa7VE-NMyV4O6Ug"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "41433144320-e9uqvkuojqp1u7n4l6iqh5082t6ssrhh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
