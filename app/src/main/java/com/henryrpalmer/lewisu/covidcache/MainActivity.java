@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private Button customButton;
     private Button shareTextButton;
     private Button searchButton;
+    private CalendarView calendarView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +62,21 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
+
+        calendarView = findViewById(R.id.calendar_selection);
+        startNowButton = findViewById(R.id.start_now);
+        startNowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
+                startActivity(intent);
+            }
+        });
+        customButton = findViewById(R.id.custom_button);
+        shareTextButton = findViewById(R.id.textShare);
+        searchButton = findViewById(R.id.mapSearch);
+
+
 
         RecyclerView recyclerView = findViewById(R.id.tracker_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
