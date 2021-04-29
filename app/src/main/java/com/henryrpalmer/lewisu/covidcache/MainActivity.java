@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -39,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
     private Button customButton;
     private Button shareTextButton;
     private Button searchButton;
-    private CalendarView calendarView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        calendarView = findViewById(R.id.calendar_selection);
         startNowButton = findViewById(R.id.start_now);
         startNowButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +73,21 @@ public class MainActivity extends AppCompatActivity {
         });
         customButton = findViewById(R.id.custom_button);
         shareTextButton = findViewById(R.id.textShare);
+        shareTextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         searchButton = findViewById(R.id.mapSearch);
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri testing = Uri.parse("geo:0,0?q=COVID+Testing+Near+Me");
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, testing);
+                startActivity(mapIntent);
+            }
+        });
 
 
 
