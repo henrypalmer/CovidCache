@@ -73,12 +73,12 @@ public class MainActivity extends AppCompatActivity {
         });
         customButton = findViewById(R.id.custom_button);
         shareTextButton = findViewById(R.id.textShare);
-        shareTextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+//        shareTextButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
         searchButton = findViewById(R.id.mapSearch);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override

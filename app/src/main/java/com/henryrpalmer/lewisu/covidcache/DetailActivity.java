@@ -31,6 +31,7 @@ public class DetailActivity extends AppCompatActivity {
 
     private FirebaseDatabase mDb;
     private DatabaseReference mRef;
+    private Date mDate;
 
 
     @Override
@@ -41,12 +42,21 @@ public class DetailActivity extends AppCompatActivity {
         mDb = FirebaseDatabase.getInstance();
         mRef = mDb.getReference("tracker");
 
+
+        // initialize the instance of the tracker and also a dummy Date object that we can assign
+        // values to from the CalendarView
+        mTracker = new Tracker();
+        mDate = new Date();
+
+
         mCalendarView = findViewById(R.id.calendar_selection);
         mCalendarView.setOnDateChangeListener( new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                Date date = new Date(year, month, dayOfMonth);
-                mTracker.setStartDate(date);
+                mDate.setYear(year);
+                mDate.setMonth(month);
+                mDate.setDate(dayOfMonth);
+                mTracker.setStartDate(mDate);
             }
         });
 
@@ -62,8 +72,15 @@ public class DetailActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                need to add symptoms to the tracker instance first
                 addSymptoms();
                 mTracker.setSymptoms(mSymptoms);
+                // set start date
+                mTracker.setStartDate(mDate);
+                // set two week
+                mTracker.setTwoWeek();
+                // set three day
+                mTracker.setThreeDay();
                 mRef.push().setValue(mTracker);
                 finish();
             }

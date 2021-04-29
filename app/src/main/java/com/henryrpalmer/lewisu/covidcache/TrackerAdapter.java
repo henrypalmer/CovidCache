@@ -37,9 +37,9 @@ public class TrackerAdapter extends FirebaseRecyclerAdapter<Tracker, TrackerAdap
 //    BIND THE DATA TO THE VIEW
     @Override
     protected void onBindViewHolder(@NonNull TrackerAdapter.TrackerHolder holder, int position, @NonNull Tracker model) {
-        holder.startDateView.setText(model.getStartDate());
-        holder.threeDaysDateView.setText(model.getThreeDay());
-        holder.twoWeeksDateView.setText(model.getTwoWeek());
+        holder.startDateView.setText(model.getStartDateString());
+        holder.threeDaysDateView.setText(model.getThreeDayString());
+        holder.twoWeeksDateView.setText(model.getTwoWeekString());
     }
 
 
