@@ -17,11 +17,6 @@ public class Tracker {
     @Exclude
     private ArrayList<String> symptoms;
 
-    private String startDateString;
-    private String twoWeekString;
-    private String threeDayString;
-
-
     public Tracker() {
         this.startDate = new Date();
     }
@@ -36,7 +31,6 @@ public class Tracker {
         this.startDate = date;
         setStartDateString();
     }
-
     // two week
     @Exclude
     public String getTwoWeek() {
@@ -47,7 +41,6 @@ public class Tracker {
         this.twoWeek = new Date(startDate.getTime() + 86400000*14);
         setTwoWeekString();
     }
-
     //three day
     @Exclude
     public String getThreeDay() {
@@ -58,27 +51,35 @@ public class Tracker {
         this.threeDay = new Date(startDate.getTime() + 86400000*3);
         setThreeDayString();
     }
-
     //symptoms
     @Exclude
     public void setSymptoms(ArrayList<String> symps) {
         this.symptoms = symps;
+        setSymptomsString();
     }
-
     @Exclude
     public String getSymptoms() {
         if (symptoms == null) {
             return "No symptoms reported";
         }
         StringBuilder builder = new StringBuilder();
-        for (int i = 0; i < symptoms.size() - 1; i++) {
+        for (int i = 0; i < symptoms.size(); i++) {
             builder.append(symptoms.get(i));
-            builder.append(",");
+            if (i == symptoms.size()-1) {
+                builder.append(".");
+            } else {
+                builder.append(", ");
+            }
         }
         return builder.toString();
 
     }
 
+    // VALUES TO PUSH TO REALTIME DATABASE
+    private String startDateString;
+    private String twoWeekString;
+    private String threeDayString;
+    private String symptomsString;
 
     public String getStartDateString() {
         return startDateString;
@@ -102,5 +103,13 @@ public class Tracker {
 
     public void setThreeDayString() {
         this.threeDayString = threeDay.toString();
+    }
+
+    public String getSymptomsString() {
+        return symptomsString;
+    }
+
+    public void setSymptomsString() {
+        this.symptomsString = getSymptoms();
     }
 }

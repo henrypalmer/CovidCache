@@ -20,13 +20,16 @@ public class TrackerAdapter extends FirebaseRecyclerAdapter<Tracker, TrackerAdap
         private final TextView startDateView;
         private final TextView threeDaysDateView;
         private final TextView twoWeeksDateView;
+        private final TextView symptomsView;
+
         public TrackerHolder(View itemView) {
             super(itemView);
             startDateView = itemView.findViewById(R.id.start_date);
             threeDaysDateView = itemView.findViewById(R.id.three_days_date);
             twoWeeksDateView = itemView.findViewById(R.id.two_weeks_date);
+            symptomsView = itemView.findViewById(R.id.symptoms_list);
         }
-    }
+}
 
 //    DEFAULT CONSTRUCTOR
     public TrackerAdapter(@NonNull FirebaseRecyclerOptions<Tracker> options) {
@@ -40,6 +43,7 @@ public class TrackerAdapter extends FirebaseRecyclerAdapter<Tracker, TrackerAdap
         holder.startDateView.setText(model.getStartDateString());
         holder.threeDaysDateView.setText(model.getThreeDayString());
         holder.twoWeeksDateView.setText(model.getTwoWeekString());
+        holder.symptomsView.setText(model.getSymptomsString());
     }
 
 

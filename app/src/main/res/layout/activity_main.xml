@@ -20,23 +20,14 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="150dp"
             android:gravity="center"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/custom_button"
-            android:text="Add Custom"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:layout_below="@id/start_now"
-            android:gravity="center"/>
 
         <Button
             android:id="@+id/textShare"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_below="@id/custom_button"
+            android:layout_below="@id/start_now"
             android:layout_centerHorizontal="true"
-            android:layout_alignLeft="@id/custom_button"
+            android:layout_alignLeft="@id/start_now"
             android:background="@drawable/fui_ic_mail_white_24dp"
             />
 
@@ -44,10 +35,20 @@
             android:id="@+id/mapSearch"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_below="@id/custom_button"
+            android:layout_below="@id/start_now"
             android:layout_centerHorizontal="true"
-            android:layout_alignRight="@id/custom_button"
+            android:layout_alignRight="@id/start_now"
             android:background="@drawable/ic_baseline_map_24"
+            />
+
+        <Button
+            android:id="@+id/clear_trackers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clear trackers"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:backgroundTint="@color/colorAccent"
             />
 
     </RelativeLayout>

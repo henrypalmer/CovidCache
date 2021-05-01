@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -20,6 +21,7 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 123;
 
     private Button startNowButton;
-    private Button customButton;
+    private Button clearTrackersButton;
     private Button shareTextButton;
     private Button searchButton;
 
@@ -71,14 +73,32 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        customButton = findViewById(R.id.custom_button);
+
+
+
+        clearTrackersButton = findViewById(R.id.clear_trackers);
+        clearTrackersButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDb.getReference().child("tracker").removeValue(new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                        Toast toast = Toast.makeText(getApplicationContext(), "Successfully removed", Toast.LENGTH_LONG);
+                        toast.show();
+                    }
+                });
+            }
+        });
+
+
         shareTextButton = findViewById(R.id.textShare);
-//        shareTextButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
+        shareTextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         searchButton = findViewById(R.id.mapSearch);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
         RecyclerView recyclerView = findViewById(R.id.tracker_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         mDb = FirebaseDatabase.getInstance();
@@ -98,7 +117,6 @@ public class MainActivity extends AppCompatActivity {
         FirebaseRecyclerOptions<Tracker> options = new FirebaseRecyclerOptions.Builder<Tracker>().setQuery(query, Tracker.class).build();
         mAdapter = new TrackerAdapter(options);
         recyclerView.setAdapter(mAdapter);
-
 
     }
 
