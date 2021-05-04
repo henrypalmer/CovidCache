@@ -50,6 +50,8 @@ public class DetailActivity extends AppCompatActivity {
 
 
         mCalendarView = findViewById(R.id.calendar_selection);
+        // ensure no time travelers getting exposed in the future
+        mCalendarView.setMaxDate(System.currentTimeMillis());
         mCalendarView.setOnDateChangeListener( new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {

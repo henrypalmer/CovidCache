@@ -3,12 +3,14 @@ package com.henryrpalmer.lewisu.covidcache;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ShareCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.renderscript.Sampler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -18,13 +20,17 @@ import android.widget.Toast;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Arrays;
 
@@ -92,12 +98,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         shareTextButton = findViewById(R.id.textShare);
-        shareTextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
 
         searchButton = findViewById(R.id.mapSearch);
         searchButton.setOnClickListener(new View.OnClickListener() {
@@ -150,6 +150,12 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
     }
-
+    
+    public void shareTextClick(View v) {
+        String text = "I am tracking my COVID exposures with CovidCache! Check it out in the appstore!";
+        String mimeType = "text/plain";
+        String title = "Sharing Symptoms";
+        ShareCompat.IntentBuilder.from(this).setType(mimeType).setChooserTitle(title).setText(text).startChooser();
+    }
 
 }

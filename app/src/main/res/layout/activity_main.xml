@@ -29,6 +29,7 @@
             android:layout_centerHorizontal="true"
             android:layout_alignLeft="@id/start_now"
             android:background="@drawable/fui_ic_mail_white_24dp"
+            android:onClick="shareTextClick"
             />
 
         <Button
