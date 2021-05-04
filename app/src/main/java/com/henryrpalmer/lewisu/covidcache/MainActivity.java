@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
     }
-    
+
     public void shareTextClick(View v) {
         String text = "I am tracking my COVID exposures with CovidCache! Check it out in the appstore!";
         String mimeType = "text/plain";
